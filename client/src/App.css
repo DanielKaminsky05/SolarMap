@@ -1,0 +1,549 @@
+/* client/src/App.css */
+/* Ensure html and body take up 100% of the height */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+/* Optional: If you want to make the map full height */
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#controls {
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  z-index: 21;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  padding: 12px;
+  margin-left: 10px;
+  border: 2px solid #4CAF50;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 200px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+input[type="number"] {
+  padding: 8px;
+  border: 2px solid #4CAF50;
+  border-radius: 4px;
+  font-size: 12px;
+  width: 80px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+button {
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+select {
+  padding: 10px;
+  border: 2px solid #4CAF50;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+   background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.map-section {
+  flex: 1;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  overflow: hidden;
+  min-width: 300px;
+}
+
+.graph-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  position: relative;
+  min-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.bar-graph-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.graph-title {
+  color: #2E7D32;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.graph-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.year-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.year-button {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-width: 40px;
+  background: #6c757d;
+}
+
+.year-button:hover {
+  background: #5a6268;
+}
+
+.year-display {
+  font-weight: 600;
+  color: #2E7D32;
+  min-width: 60px;
+  text-align: center;
+}
+
+.mode-toggle {
+  background: #17a2b8;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+
+.mode-toggle:hover {
+  background: #138496;
+}
+
+.data-type-toggle {
+  background: #6f42c1;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+
+.data-type-toggle:hover {
+  background: #5a32a3;
+}
+
+.chart-container {
+  flex: 1;
+  min-height: 300px;
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 18px;
+  color: #4CAF50;
+}
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #d32f2f;
+  text-align: center;
+  font-size: 16px;
+  background: #ffebee;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.parameter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.parameter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.parameter-label {
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* Token warning popup styles */
+.token-warning {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 15px;
+  z-index: 1000;
+  max-width: 300px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.token-warning-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.token-warning-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #856404;
+  padding: 0;
+  margin-left: 10px;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+  }
+  
+  .map-section {
+    height: 40vh;
+    min-height: 300px;
+  }
+  
+  .graph-section {
+    height: 60vh;
+    min-width: unset;
+    padding: 15px;
+  }
+  
+  #controls {
+    margin: 10px;
+    gap: 5px;
+  }
+  
+  input[type="text"] {
+    min-width: 150px;
+    margin-left: 5px;
+  }
+  
+  .graph-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .graph-title {
+    font-size: 1.2rem;
+  }
+  
+  .graph-controls {
+    justify-content: center;
+  }
+  
+  .parameter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .parameter-group {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 2px;
+  }
+  
+  .graph-section {
+    padding: 10px;
+  }
+  
+  .graph-title {
+    font-size: 1rem;
+  }
+  
+  .year-controls {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  input[type="text"] {
+    min-width: 120px;
+  }
+  
+  button {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4CAF50;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #45a049;
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+  }
+  
+  .map-section {
+    height: 40vh;
+    min-height: 300px;
+  }
+  
+  .graph-section {
+    height: 60vh;
+    min-width: unset;
+    padding: 15px;
+  }
+  
+  #controls {
+    margin: 10px;
+    gap: 5px;
+    padding: 8px;
+  }
+  
+  input[type="text"] {
+    min-width: 150px;
+    margin-left: 5px;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  input[type="number"] {
+    padding: 6px;
+    font-size: 11px;
+    width: 60px;
+  }
+
+  button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  select {
+    padding: 6px;
+    font-size: 12px;
+  }
+  
+  .graph-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .graph-title {
+    font-size: 1.2rem;
+  }
+  
+  .graph-controls {
+    justify-content: center;
+  }
+  
+  .parameter-controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .parameter-group {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .parameter-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 2px;
+  }
+  
+  .graph-section {
+    padding: 10px;
+  }
+  
+  .graph-title {
+    font-size: 1rem;
+  }
+  
+  #controls {
+    margin: 8px;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  input[type="text"] {
+    min-width: 120px;
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  input[type="number"] {
+    padding: 4px;
+    font-size: 10px;
+    width: 50px;
+  }
+
+  button {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  select {
+    padding: 4px;
+    font-size: 11px;
+  }
+  
+  .year-controls {
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .parameter-controls {
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .parameter-group {
+    gap: 2px;
+  }
+
+  .parameter-label {
+    font-size: 10px;
+  }
+}
