@@ -3,7 +3,7 @@ Data visualization for Sunshine and Wind level for US & Canada
 
 ## Project Structure
 ```
-sonnetEdit/
+SolarMap/
 ├── backend/           # Express.js API server
 ├── client/           # React frontend application
 ├── controllers/      # API route handlers
